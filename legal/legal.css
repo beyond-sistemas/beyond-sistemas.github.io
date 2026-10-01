@@ -1,0 +1,58 @@
+.legal {
+  padding: 3rem 0 4rem;
+  max-width: 720px;
+}
+
+.legal__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.legal h1 {
+  font-family: var(--font-logo);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.legal__meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.legal h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin: 1.6rem 0 0.55rem;
+}
+
+.legal p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.legal a {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.legal__back {
+  margin-top: 2.5rem;
+}
+
+.legal__back a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.site-header .btn--nav {
+  display: inline-flex;
+}
