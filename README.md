@@ -8,6 +8,10 @@ Site de marca e design system da Beyond, liderada por Keven Miano.
 - Design system (HTML): `brand/guidelines.html`
 - Contato: `hello@beyond.sistemas.com.br`
 
+> `index.html` inlines `css/styles.css` e as fontes locais para melhorar LCP/CPF.
+> Depois de editar o CSS, rode `python3 scripts/sync-inline-css.py` na raiz do site.
+> `css/styles.css` continua sendo a fonte da verdade.
+
 ---
 
 # Design System & Style Guide
