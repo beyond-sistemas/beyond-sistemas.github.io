@@ -78,4 +78,4 @@ Conte o desafio. Respondemos com um próximo passo claro — sem pitch genérico
 
 **hello@beyond.sistemas.com.br**
 
-[beyond-sistemas.github.io/beyond](https://beyond-sistemas.github.io/beyond/)
+[beyond-sistemas.github.io/beyond](https://beyond-sistemas.github.io/)
