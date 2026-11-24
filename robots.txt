@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /brand/
 
-Sitemap: https://beyondsistemas.com.br/sitemap.xml
+Sitemap: https://kevenmiano.github.io/beyond/sitemap.xml

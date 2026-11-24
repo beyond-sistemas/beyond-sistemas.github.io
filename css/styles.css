@@ -729,6 +729,11 @@ ul, ol { list-style: none; }
   to { stroke-dashoffset: 0; }
 }
 
+@keyframes hero-ground-rise {
+  from { height: calc(var(--ground-h, 34%) * 0.72); }
+  to { height: var(--ground-h, 34%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero__brand,
   .hero__title,
@@ -741,6 +746,10 @@ ul, ol { list-style: none; }
 
   .hero__underline path {
     stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .hero .hero__ground {
     animation: none;
   }
 }
@@ -789,8 +798,10 @@ ul, ol { list-style: none; }
     left: -52%;
     right: -52%;
     bottom: -2%;
-    height: 34%;
+    --ground-h: 34%;
+    height: var(--ground-h);
     border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+    animation: hero-ground-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .hero__glow {
@@ -808,7 +819,7 @@ ul, ol { list-style: none; }
 
 @media (max-width: 859px) and (max-height: 560px) {
   .hero__ground {
-    height: 24%;
+    --ground-h: 24%;
   }
 
   .hero__content {
