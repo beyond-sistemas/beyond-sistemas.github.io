@@ -1924,6 +1924,21 @@ ul, ol { list-style: none; }
   border-color: #05e17a;
 }
 
+.contact-form__honey {
+  display: none;
+}
+
+.contact-form__status {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--blue-deep);
+}
+
+.contact-form__status[hidden] {
+  display: none;
+}
+
 .input--success:focus,
 .input--success:focus-visible {
   border-color: #05e17a;

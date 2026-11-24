@@ -3,8 +3,6 @@
   const navToggle = document.getElementById("navToggle");
   const mobileNav = document.getElementById("mobileNav");
   const year = document.getElementById("year");
-  const form = document.getElementById("contactForm");
-
   if (year) year.textContent = String(new Date().getFullYear());
 
   const hero = document.getElementById("hero");
@@ -347,16 +345,11 @@
     });
   });
 
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const data = new FormData(form);
-    const name = String(data.get("name") || "").trim();
-    const email = String(data.get("email") || "").trim();
-    const message = String(data.get("message") || "").trim();
-    const subject = encodeURIComponent(`Consultoria Beyond — ${name}`);
-    const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\n${message}`);
-    window.location.href = `mailto:hello@beyond.sistemas.com.br?subject=${subject}&body=${body}`;
-  });
+  const formStatus = document.getElementById("formStatus");
+  if (formStatus && new URLSearchParams(window.location.search).has("enviado")) {
+    formStatus.textContent = "Mensagem enviada. Respondemos em breve.";
+    formStatus.hidden = false;
+  }
 
   const cookieKey = "beyond-cookie-consent";
   const cookieBanner = document.getElementById("cookieBanner");
