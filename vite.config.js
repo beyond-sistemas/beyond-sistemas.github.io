@@ -8,7 +8,6 @@ const STATIC = [
   "css",
   "legal",
   "brand",
-  "wallpapers",
   "404.html",
   "robots.txt",
   "sitemap.xml",
