@@ -376,7 +376,12 @@
   } catch (_) {}
 
   if (!consent && cookieBanner) {
-    cookieBanner.removeAttribute("hidden");
+    const revealCookieBanner = () => cookieBanner.removeAttribute("hidden");
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(revealCookieBanner, revealCookieBanner);
+    } else {
+      revealCookieBanner();
+    }
   }
 
   cookieAccept?.addEventListener("click", () => hideCookieBanner("accepted"));
