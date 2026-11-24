@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página não encontrada — Beyond</title>
+  <meta name="description" content="A página que você procura não existe ou mudou de endereço. Volte para a home da Beyond." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#1046e8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@700;800&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    .notfound {
+      min-height: calc(100svh - var(--nav-h));
+      display: grid;
+      place-items: center;
+      padding: var(--section-y) 0;
+      background: #1046e8;
+      color: #fff;
+      text-align: center;
+    }
+    .notfound__code {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(4rem, 18vw, 9rem);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin: 0;
+    }
+    .notfound__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
+      letter-spacing: -0.025em;
+      margin: var(--space-3) 0 var(--space-2);
+    }
+    .notfound__lead {
+      margin: 0 auto var(--space-5);
+      max-width: 34ch;
+      color: color-mix(in srgb, #fff 84%, transparent);
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Beyond — início">
+        <img class="brand__mark" src="/assets/mark-ring.svg" alt="" width="40" height="40" />
+        <span class="brand__word">Beyond</span>
+      </a>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#services">Serviços</a>
+        <a href="/#approach">Método</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#contact">Contato</a>
+      </nav>
+      <a class="btn btn--blue btn--nav" href="/#contact">Fale conosco</a>
+    </div>
+  </header>
+
+  <main class="notfound">
+    <div class="container">
+      <p class="notfound__code">404</p>
+      <h1 class="notfound__title">Página não encontrada</h1>
+      <p class="notfound__lead">O endereço mudou ou nunca existiu. Volte para o início ou fale com a Beyond.</p>
+      <a class="btn btn--solid" href="/">Voltar para a home</a>
+    </div>
+  </main>
+</body>
+</html>

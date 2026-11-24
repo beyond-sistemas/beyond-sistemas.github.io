@@ -1,6 +1,6 @@
 # Beyond
 
-Consultoria em TI — **Look beyond limits.**
+Consultoria de engenharia — estratégia e execução na mesma mão. **Look beyond limits.**
 
 Site de marca e design system da Beyond, liderada por Keven Miano.
 
@@ -20,7 +20,7 @@ Fonte de verdade alinhada ao CSS live (`css/styles.css`).
 |---|---|
 | **Nome** | Beyond |
 | **Tagline** | Look beyond limits |
-| **Categoria** | Consultoria em TI — arquitetura, engenharia, cloud & DevOps |
+| **Categoria** | Consultoria de engenharia — arquitetura, integrações, software e cloud & DevOps |
 | **Voz** | Clear · Bold · Expansive · Technical |
 | **Tom** | PT-BR direto, frases curtas, sem pitch genérico |
 | **CTAs** | Fale conosco · Ver serviços · Enviar mensagem |
@@ -33,9 +33,11 @@ Fonte de verdade alinhada ao CSS live (`css/styles.css`).
 
 | Asset | Uso |
 |---|---|
-| `assets/mark.svg` | Favicon — anel `#0a0a0a` + ponto `#1857ff` |
-| `assets/mark-ring.png` | Header (fundo claro) |
-| `assets/mark-on-dark.png` | Footer (fundo escuro) |
+| `assets/mark.svg` | Favicon — anel ink + bolinha `#1857ff` |
+| `assets/mark-ring.svg` | Header (fundo claro) — anel ink + bolinha `#1857ff` |
+| `assets/mark-on-dark.svg` | Footer (fundo escuro) — anel branco + bolinha `#1857ff` |
+
+Anel monocromático (preto ou branco conforme o fundo). Bolinha sempre `#1857ff`.
 
 ### Lockup
 

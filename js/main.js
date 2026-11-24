@@ -13,10 +13,16 @@
   const heroSticky = hero?.querySelector(".hero__sticky");
   let heroRaf = 0;
   const reduceHeroMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mqCompactHero = window.matchMedia("(max-width: 859px)");
 
   const syncHeroGround = () => {
     heroRaf = 0;
     if (!hero || !heroGround || !heroBrand || !heroSticky) return;
+
+    if (mqCompactHero.matches) {
+      heroGround.style.height = "";
+      return;
+    }
 
     const stickyRect = heroSticky.getBoundingClientRect();
     const brandRect = heroBrand.getBoundingClientRect();
