@@ -466,7 +466,10 @@
             <span class="sr-only">Mensagem</span>
             <textarea name="message" rows="5" placeholder="Mensagem" required></textarea>
           </label>
-          <button class="btn btn--blue" type="submit">Enviar mensagem</button>
+          <button class="btn btn--blue" type="submit" id="formSubmit">
+            <span class="btn__spinner" aria-hidden="true"></span>
+            <span class="btn__label">Enviar mensagem</span>
+          </button>
           <p class="contact-form__status" id="formStatus" role="status" hidden></p>
         </form>
       </div>

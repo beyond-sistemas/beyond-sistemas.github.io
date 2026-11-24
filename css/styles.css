@@ -218,6 +218,36 @@ ul, ol { list-style: none; }
 
 .btn:active { transform: translateY(1px); }
 
+.btn__spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.6rem;
+  border: 2px solid color-mix(in srgb, currentColor 30%, transparent);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: btn-spin 0.7s linear infinite;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn.is-loading {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.btn.is-loading .btn__spinner {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn__spinner {
+    animation-duration: 1.6s;
+  }
+}
+
 .btn:focus-visible,
 .hero__note:focus-visible,
 .nav-links a:focus-visible,

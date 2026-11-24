@@ -351,6 +351,16 @@
     formStatus.hidden = false;
   }
 
+  const contactForm = document.getElementById("contactForm");
+  const formSubmit = document.getElementById("formSubmit");
+  contactForm?.addEventListener("submit", () => {
+    if (!formSubmit || formSubmit.disabled) return;
+    formSubmit.disabled = true;
+    formSubmit.classList.add("is-loading");
+    const label = formSubmit.querySelector(".btn__label");
+    if (label) label.textContent = "Enviando...";
+  });
+
   const cookieKey = "beyond-cookie-consent";
   const cookieBanner = document.getElementById("cookieBanner");
   const cookieAccept = document.getElementById("cookieAccept");
