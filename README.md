@@ -20,26 +20,75 @@
 
 ---
 
-## Conteúdo
+## O problema
 
-- [Sobre](#sobre)
-- [Site](#site)
-- [Serviços](#serviços)
-- [Estrutura do repositório](#estrutura-do-repositório)
-- [Desenvolvimento](#desenvolvimento)
-- [Deploy e CI/CD](#deploy-e-cicd)
-- [Identidade visual](#identidade-visual)
-- [Contato](#contato)
+Sistema travado não é falta de ferramenta. É dívida de decisão.
 
-## Sobre
+- **Consultoria tradicional** entrega diagnóstico, slides e uma recomendação. Quem decide não implementa. Quem implementa não entendeu o contexto.
+- **Software house** executa a especificação que recebe. Entrega função, não resolve o problema de arquitetura por trás dela.
+- **Time interno** tem contexto, mas raramente tem largura de banda para reestruturar a base e entregar ao mesmo tempo.
 
-A Beyond é uma consultoria de engenharia. Quem entende o problema é quem desenha a arquitetura e responde pela entrega, do diagnóstico à produção.
+O resultado é o mesmo: integração frágil, acoplamento invisível e ninguém responsável pelo sistema como um todo.
 
-Não é consultoria que só recomenda. Não é software house que só executa o que recebe pronto. Estratégia e execução ficam na mesma mão, com dono claro até o handoff.
+## A tese
 
-- Atuação: arquitetura de sistemas, integrações, engenharia de software e cloud & DevOps
-- Operação: somente remoto
-- Tom: PT-BR direto, frases curtas, sem pitch genérico
+Engenharia sênior que decide e executa no mesmo ciclo.
+
+A Beyond entra no problema com mão na massa. O mesmo engenheiro que entende o negócio desenha a arquitetura, escreve o código, acompanha o deploy e faz o handoff. Não existe repasse entre "quem pensa" e "quem faz".
+
+| | Consultoria | Software house | **Beyond** |
+|---|---|---|---|
+| Diagnóstico | sim | raramente | sim |
+| Decisão de arquitetura | recomenda | recebe pronta | decide e implementa |
+| Código em produção | não | sim | sim, com o mesmo dono |
+| Responsabilidade | termina no relatório | termina na entrega | vai até o handoff |
+| Contexto do negócio | alto | baixo | alto |
+
+## O que entregamos
+
+### Arquitetura
+
+- Diagnóstico de sistemas existentes e do limite real que trava o crescimento
+- Desenho de fronteiras, contratos e roadmap técnico
+- Decisões registradas, com trade-offs explícitos — não template de slide
+
+### Integrações
+
+- Mapeamento de ERPs, CRMs, gateways, clouds e APIs
+- Auth, eventos, sincronização e contratos estáveis com terceiros
+- Pontes sob medida onde não existe conector pronto
+
+### Engenharia de produto
+
+- Implementação hands-on de APIs, serviços e plataformas
+- Código no repositório do cliente, desde o primeiro commit
+- Testes, documentação e deploy na infraestrutura do cliente
+
+### Cloud & DevOps
+
+- Confiabilidade e observabilidade sob pressão
+- Infraestrutura estável, versionada e reproduzível
+- Operação transferida para o time com handoff claro
+
+## Como o trabalho acontece
+
+| Etapa | O que sai |
+|---|---|
+| **01 · Descobrir** | Mapa de sistemas, restrições e gargalo real |
+| **02 · Desenhar** | Arquitetura, prioridades e plano executável pelo time |
+| **03 · Entregar** | Código, deploy, testes, documentação e handoff |
+
+Ciclo curto, com dono claro e checkpoints semanais. Escopo acompanha o que o time aprende na prática.
+
+## Princípios técnicos
+
+- **Sem lock-in:** código, PRs e infraestrutura vivem na conta do cliente
+- **Contratos antes de implementar:** fronteiras estáveis entre sistemas
+- **Solução sob medida:** não existe peça genérica para problema específico
+- **Entrega verificável:** testes e documentação acompanham o código
+- **Saída planejada:** o time continua rodando sem depender de nós
+
+Operação: somente remoto.
 
 ## Site
 
@@ -47,15 +96,15 @@ Não é consultoria que só recomenda. Não é software house que só executa o 
 
 Landing estática, sem build. HTML, CSS e JavaScript puro.
 
-## Serviços
+## Contato
 
-| # | Serviço | Entrega |
-|---|---|---|
-| 01 | Arquitetura | Design de sistemas, roadmap e decisões técnicas que escalam |
-| 02 | Engenharia | Engenharia de produto hands-on, APIs e plataformas até produção |
-| 03 | Cloud & DevOps | DevOps, confiabilidade e infraestrutura estável sob pressão |
+hello@beyond.sistemas.com.br
 
-## Estrutura do repositório
+---
+
+# Apêndice — repositório
+
+## Estrutura
 
 | Caminho | Função |
 |---|---|
@@ -73,29 +122,25 @@ Landing estática, sem build. HTML, CSS e JavaScript puro.
 
 ## Desenvolvimento
 
-Sirva o diretório como estático:
-
 ```bash
 python3 -m http.server 4321
+# http://127.0.0.1:4321/
 ```
 
-Acesse http://127.0.0.1:4321/
-
-Depois de editar `css/styles.css`, atualize o bloco inline da home:
+Depois de editar `css/styles.css`, sincronize o bloco inline da home:
 
 ```bash
 python3 scripts/sync-inline-css.py
 ```
 
-> `index.html` inlines `css/styles.css` e as fontes locais para manter o primeiro paint fora do caminho crítico. `css/styles.css` continua sendo a fonte da verdade.
+> `index.html` inlines CSS e fontes locais para manter o primeiro paint fora do caminho crítico. `css/styles.css` continua sendo a fonte da verdade.
 
 ## Deploy e CI/CD
 
 - Branch: `main`
-- Workflow: `.github/workflows/deploy-pages.yml`
 - Actions: `checkout@v7` → `configure-pages@v6` → `upload-pages-artifact@v5` → `deploy-pages@v5`
 - Publicação: GitHub Pages com `build_type: workflow`
-- O artefato usa nome por `github.run_id` para evitar colisão entre runs
+- Artefato com nome por `github.run_id` para evitar colisão entre runs
 
 Todo push em `main` dispara o deploy. `workflow_dispatch` também está disponível.
 
@@ -108,20 +153,13 @@ Todo push em `main` dispara o deploy. `workflow_dispatch` também está disponí
 | `assets/mark-on-dark.svg` | Footer (fundo escuro) |
 | `assets/brand-avatar.png` | Avatar institucional |
 
-O anel é monocromático conforme o fundo. O ponto é sempre `#1857ff`. O gap fica no canto superior direito.
-
 | Token | Valor | Papel |
 |---|---|---|
 | `--ink` | `#0a0a0a` | Texto e footer |
 | `--blue` | `#1857ff` | Accent, CTA e foco |
 | `--blue-mid` | `#3d74ff` | Hover de azul |
 | `--charcoal` | `#141820` | Horizonte do hero e do footer |
-| `--bg-soft` | `#f6f8fc` | Superfícies secundárias |
 
-Tipografia: Inter (wordmark), Syne (títulos) e DM Sans (corpo). Fontes hospedadas localmente em `assets/fonts/`.
+Tipografia: Inter (wordmark), Syne (títulos), DM Sans (corpo), hospedada localmente em `assets/fonts/`.
 
 Guia completo: [`brand/guidelines.html`](./brand/guidelines.html)
-
-## Contato
-
-hello@beyond.sistemas.com.br
