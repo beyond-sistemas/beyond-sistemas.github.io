@@ -2016,7 +2016,7 @@ ul, ol { list-style: none; }
   position: absolute;
   top: 0;
   left: -0.05em;
-  color: var(--blue);
+  color: var(--blue-mid);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 4.5rem;
   font-weight: 700;
@@ -2027,13 +2027,13 @@ ul, ol { list-style: none; }
 }
 
 .footer-email {
-  color: var(--blue);
+  color: var(--blue-mid);
   font-weight: 600;
   font-size: var(--text-base);
 }
 
 .footer-email:hover {
-  color: #3d74ff;
+  color: #8caaff;
 }
 
 .footer-col h3 {
@@ -2127,8 +2127,12 @@ ul, ol { list-style: none; }
 }
 
 .cookie-banner__copy a {
-  color: var(--blue);
+  color: var(--blue-mid);
   text-decoration: underline;
+}
+
+.cookie-banner__copy a:hover {
+  color: #8caaff;
 }
 
 .cookie-banner__actions {
