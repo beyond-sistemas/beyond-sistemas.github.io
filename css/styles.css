@@ -233,12 +233,12 @@ ul, ol { list-style: none; }
   to { transform: rotate(360deg); }
 }
 
-.btn.is-loading {
+.btn[data-state="loading"] {
   opacity: 0.85;
   pointer-events: none;
 }
 
-.btn.is-loading .btn__spinner {
+.btn[data-state="loading"] .btn__spinner {
   display: inline-block;
 }
 
@@ -354,7 +354,7 @@ ul, ol { list-style: none; }
   backdrop-filter: blur(12px);
 }
 
-.site-header.is-scrolled {
+.site-header[data-state="scrolled"] {
   background: color-mix(in srgb, var(--bg) 92%, transparent);
 }
 
@@ -383,7 +383,7 @@ ul, ol { list-style: none; }
 }
 
 .nav-links a:hover,
-.nav-links a.is-active {
+.nav-links a[data-state="active"] {
   color: var(--blue);
 }
 
@@ -1405,20 +1405,20 @@ ul, ol { list-style: none; }
   pointer-events: none;
 }
 
-.services__item.is-active .services__num {
+.services__item[data-state="active"] .services__num {
   background: var(--blue);
   color: #fff;
 }
 
-.services__item.is-active .services__copy h3 {
+.services__item[data-state="active"] .services__copy h3 {
   color: var(--ink);
 }
 
-.services__item.is-active .services__copy p {
+.services__item[data-state="active"] .services__copy p {
   color: var(--muted);
 }
 
-.services__item.is-active .services__media {
+.services__item[data-state="active"] .services__media {
   opacity: 1;
   transform: none;
 }
@@ -1627,7 +1627,7 @@ ul, ol { list-style: none; }
   transition-delay: var(--approach-delay, 0ms);
 }
 
-.approach-flow__item.is-shown {
+.approach-flow__item[data-state="shown"] {
   opacity: 1;
   transform: none;
 }
@@ -1934,17 +1934,17 @@ ul, ol { list-style: none; }
 }
 
 .input--error,
-.contact-form input.is-error,
-.contact-form textarea.is-error {
+.contact-form input[data-state="error"],
+.contact-form textarea[data-state="error"] {
   border-color: #e11d48;
 }
 
 .input--error:focus,
 .input--error:focus-visible,
-.contact-form input.is-error:focus,
-.contact-form input.is-error:focus-visible,
-.contact-form textarea.is-error:focus,
-.contact-form textarea.is-error:focus-visible {
+.contact-form input[data-state="error"]:focus,
+.contact-form input[data-state="error"]:focus-visible,
+.contact-form textarea[data-state="error"]:focus,
+.contact-form textarea[data-state="error"]:focus-visible {
   border-color: #e11d48;
   outline: none;
   box-shadow: 0 0 0 3px color-mix(in srgb, #e11d48 35%, transparent);
@@ -2245,7 +2245,7 @@ ul, ol { list-style: none; }
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
-.reveal.is-visible {
+.reveal[data-reveal="visible"] {
   opacity: 1;
   transform: none;
 }

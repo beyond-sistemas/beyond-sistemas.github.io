@@ -64,7 +64,7 @@
   bootHeroGround();
 
   const onScroll = () => {
-    header?.classList.toggle("is-scrolled", window.scrollY > 6);
+    header?.setAttribute("data-state", window.scrollY > 6 ? "scrolled" : "top");
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -117,7 +117,8 @@
     }
     navLinks.forEach((link) => {
       const href = link.getAttribute("href") || "";
-      link.classList.toggle("is-active", href === `#${current}`);
+      if (href === `#${current}`) link.dataset.state = "active";
+      else delete link.dataset.state;
     });
   };
   window.addEventListener("scroll", syncActiveNav, { passive: true });
@@ -132,7 +133,8 @@
     if (index < 0 || index >= serviceItems.length || index === activeService) return;
     activeService = index;
     serviceItems.forEach((item, i) => {
-      item.classList.toggle("is-active", i === index);
+      if (i === index) item.dataset.state = "active";
+      else delete item.dataset.state;
     });
   };
 
@@ -174,13 +176,13 @@
   const reveals = [...document.querySelectorAll(".reveal")];
 
   if (reduceMotion) {
-    reveals.forEach((el) => el.classList.add("is-visible"));
+    reveals.forEach((el) => el.dataset.reveal = "visible");
   } else if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            entry.target.dataset.reveal = "visible";
             io.unobserve(entry.target);
           }
         });
@@ -189,7 +191,7 @@
     );
     reveals.forEach((el) => io.observe(el));
   } else {
-    reveals.forEach((el) => el.classList.add("is-visible"));
+    reveals.forEach((el) => el.dataset.reveal = "visible");
   }
 
   if (!reduceMotion) {
@@ -252,9 +254,9 @@
 
   const showApproachItem = (index) => {
     const item = approachItems[index];
-    if (!item || item.classList.contains("is-shown")) return;
+    if (!item || item.dataset.state === "shown") return;
     item.style.setProperty("--approach-delay", "0ms");
-    item.classList.add("is-shown");
+    item.dataset.state = "shown";
     approachShown = Math.max(approachShown, index + 1);
   };
 
@@ -263,7 +265,7 @@
     if (!approachItems.length || !approachSection) return;
 
     if (reduceMotion) {
-      approachItems.forEach((item) => item.classList.add("is-shown"));
+      approachItems.forEach((item) => { item.dataset.state = "shown"; });
       approachShown = approachItems.length;
       return;
     }
@@ -356,7 +358,7 @@
   contactForm?.addEventListener("submit", () => {
     if (!formSubmit || formSubmit.disabled) return;
     formSubmit.disabled = true;
-    formSubmit.classList.add("is-loading");
+    formSubmit.dataset.state = "loading";
     const label = formSubmit.querySelector(".btn__label");
     if (label) label.textContent = "Enviando...";
   });
