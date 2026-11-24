@@ -1,268 +1,127 @@
-# Beyond
+<p align="center">
+  <img src="./assets/brand-avatar.png" alt="Beyond" width="88" />
+</p>
 
-Consultoria de engenharia — estratégia e execução na mesma mão. **Look beyond limits.**
+<h1 align="center">Beyond</h1>
 
-Site de marca e design system da Beyond, liderada por Keven Miano.
+<p align="center">
+  Consultoria de engenharia — estratégia e execução na mesma mão.<br />
+  <strong>Look beyond limits.</strong>
+</p>
 
-- Landing: `index.html`
-- Design system (HTML): `brand/guidelines.html`
-- Contato: `hello@beyond.sistemas.com.br`
-
-> `index.html` inlines `css/styles.css` e as fontes locais para melhorar LCP/CPF.
-> Depois de editar o CSS, rode `python3 scripts/sync-inline-css.py` na raiz do site.
-> `css/styles.css` continua sendo a fonte da verdade.
+<p align="center">
+  <a href="https://github.com/beyond-sistemas/beyond/actions/workflows/deploy-pages.yml">
+    <img src="https://github.com/beyond-sistemas/beyond/actions/workflows/deploy-pages.yml/badge.svg" alt="Deploy to GitHub Pages" />
+  </a>
+  <a href="https://beyond-sistemas.github.io/beyond/">
+    <img src="https://img.shields.io/website?label=site&url=https%3A%2F%2Fbeyond-sistemas.github.io%2Fbeyond%2F" alt="Site" />
+  </a>
+</p>
 
 ---
 
-# Design System & Style Guide
+## Conteúdo
 
-Fonte de verdade alinhada ao CSS live (`css/styles.css`).
+- [Sobre](#sobre)
+- [Site](#site)
+- [Serviços](#serviços)
+- [Estrutura do repositório](#estrutura-do-repositório)
+- [Desenvolvimento](#desenvolvimento)
+- [Deploy e CI/CD](#deploy-e-cicd)
+- [Identidade visual](#identidade-visual)
+- [Contato](#contato)
 
-## Positioning & voice
+## Sobre
 
-| | |
+A Beyond é uma consultoria de engenharia. Quem entende o problema é quem desenha a arquitetura e responde pela entrega, do diagnóstico à produção.
+
+Não é consultoria que só recomenda. Não é software house que só executa o que recebe pronto. Estratégia e execução ficam na mesma mão, com dono claro até o handoff.
+
+- Atuação: arquitetura de sistemas, integrações, engenharia de software e cloud & DevOps
+- Operação: somente remoto
+- Tom: PT-BR direto, frases curtas, sem pitch genérico
+
+## Site
+
+**Produção:** https://beyond-sistemas.github.io/beyond/
+
+Landing estática, sem build. HTML, CSS e JavaScript puro.
+
+## Serviços
+
+| # | Serviço | Entrega |
+|---|---|---|
+| 01 | Arquitetura | Design de sistemas, roadmap e decisões técnicas que escalam |
+| 02 | Engenharia | Engenharia de produto hands-on, APIs e plataformas até produção |
+| 03 | Cloud & DevOps | DevOps, confiabilidade e infraestrutura estável sob pressão |
+
+## Estrutura do repositório
+
+| Caminho | Função |
 |---|---|
-| **Nome** | Beyond |
-| **Tagline** | Look beyond limits |
-| **Categoria** | Consultoria de engenharia — arquitetura, integrações, software e cloud & DevOps |
-| **Voz** | Clear · Bold · Expansive · Technical |
-| **Tom** | PT-BR direto, frases curtas, sem pitch genérico |
-| **CTAs** | Fale conosco · Ver serviços · Enviar mensagem |
+| `index.html` | Landing. CSS e fontes inlines no `<head>` para LCP/CPF |
+| `css/styles.css` | Fonte da verdade do CSS |
+| `js/main.js` | Navegação, FAQ, scroll do hero, reveals e cookie |
+| `brand/guidelines.html` | Design system visual (páginas) |
+| `legal/` | Termos, privacidade e cookies |
+| `assets/` | Logotipos, ícones WebP, fontes locais e imagem Open Graph |
+| `assets/brand-avatar.png` | Avatar da marca para GitHub e redes (512×512) |
+| `wallpapers/` | Papéis de parede gerados com HyperFrames |
+| `scripts/sync-inline-css.py` | Sincroniza `css/styles.css` com o `<style>` da home |
+| `.github/workflows/deploy-pages.yml` | Deploy automático no GitHub Pages |
+| `robots.txt`, `sitemap.xml`, `404.html` | Arquivos de SEO e erro |
 
-**Significado do símbolo:** anel aberto = limite; gap = abertura; ponto azul = o que está *beyond* (visão / próximo passo).
+## Desenvolvimento
 
----
+Sirva o diretório como estático:
 
-## Logo
+```bash
+python3 -m http.server 4321
+```
+
+Acesse http://127.0.0.1:4321/
+
+Depois de editar `css/styles.css`, atualize o bloco inline da home:
+
+```bash
+python3 scripts/sync-inline-css.py
+```
+
+> `index.html` inlines `css/styles.css` e as fontes locais para manter o primeiro paint fora do caminho crítico. `css/styles.css` continua sendo a fonte da verdade.
+
+## Deploy e CI/CD
+
+- Branch: `main`
+- Workflow: `.github/workflows/deploy-pages.yml`
+- Actions: `checkout@v7` → `configure-pages@v6` → `upload-pages-artifact@v5` → `deploy-pages@v5`
+- Publicação: GitHub Pages com `build_type: workflow`
+- O artefato usa nome por `github.run_id` para evitar colisão entre runs
+
+Todo push em `main` dispara o deploy. `workflow_dispatch` também está disponível.
+
+## Identidade visual
 
 | Asset | Uso |
 |---|---|
-| `assets/mark.svg` | Favicon — anel ink + bolinha `#1857ff` |
-| `assets/mark-ring.svg` | Header (fundo claro) — anel ink + bolinha `#1857ff` |
-| `assets/mark-on-dark.svg` | Footer (fundo escuro) — anel branco + bolinha `#1857ff` |
+| `assets/mark.svg` | Favicon — anel ink + ponto `#1857ff` |
+| `assets/mark-ring.svg` | Header (fundo claro) |
+| `assets/mark-on-dark.svg` | Footer (fundo escuro) |
+| `assets/brand-avatar.png` | Avatar institucional |
 
-Anel monocromático (preto ou branco conforme o fundo). Bolinha sempre `#1857ff`.
+O anel é monocromático conforme o fundo. O ponto é sempre `#1857ff`. O gap fica no canto superior direito.
 
-### Lockup
-
-**Header**
-- Mark `1.7rem` (≥860px: `1.85rem`)
-- Wordmark Inter **700**, tracking `-0.04em`
-
-**Footer**
-- Mark `2.35rem`
-- Wordmark Inter **800**, tracking `-0.04em`
-
-### Regras
-- Clear space ≥ diâmetro do ponto; gap sempre upper-right
-- Flat: ink, white ou brand blue no ponto
-- Mínimo digital: **24px** (só símbolo)
-- **Não:** stretch, glow, purple, amarelo, fechar o anel
-
----
-
-## Color tokens
-
-### Primárias
-
-| Token | Hex | Papel |
+| Token | Valor | Papel |
 |---|---|---|
-| `--ink` | `#0a0a0a` | Texto, footer, bordas fortes |
-| `--blue` | `#1857ff` | Accent, CTAs, focus |
-| `--bg` | `#ffffff` | Fundo base |
-| `--charcoal` | `#141820` | Hero ground |
-| `--muted` | `#3f3f3f` | Texto secundário |
+| `--ink` | `#0a0a0a` | Texto e footer |
+| `--blue` | `#1857ff` | Accent, CTA e foco |
+| `--blue-mid` | `#3d74ff` | Hover de azul |
+| `--charcoal` | `#141820` | Horizonte do hero e do footer |
+| `--bg-soft` | `#f6f8fc` | Superfícies secundárias |
 
-### Superfícies
+Tipografia: Inter (wordmark), Syne (títulos) e DM Sans (corpo). Fontes hospedadas localmente em `assets/fonts/`.
 
-| Token | Hex |
-|---|---|
-| `--bg-soft` | `#f6f8fc` |
-| `--bg-blue` | `#eef2fa` |
-| `--paper` | `#f7f6f2` |
-| `--line` | `#e6e6e6` |
-| `--line-strong` | `#0a0a0a` |
+Guia completo: [`brand/guidelines.html`](./brand/guidelines.html)
 
-### Blue scale
+## Contato
 
-| Token | Hex |
-|---|---|
-| `--blue-deep` | `#0b3fd9` |
-| Hero field | `#1046e8` |
-| `--blue` | `#1857ff` |
-| `--blue-mid` | `#3d74ff` |
-| `--blue-soft` | `#9ec2ff` |
-| `--blue-glow` | `#d6e6ff` |
-
-### Semânticos
-
-| Token / hex | Uso |
-|---|---|
-| `--green` `#05e17a` | Success |
-| `#e11d48` | Error |
-| FAQ | `#252b38` |
-
-### Focus
-
-`--ring: 2px` · `--ring-offset: 2px` · `--ring-color: var(--blue)`
-
-**Accent da marca = blue. Nunca amarelo.**
-
-**Ratios:** ~60% white/soft/paper · 25% ink · 12% blue · 3% green
-
----
-
-## Typography
-
-### Families
-
-| Token | Stack | Uso |
-|---|---|---|
-| `--font-logo` | Inter | Wordmark, hero brand |
-| `--font-display` | Syne | Títulos, eyebrows |
-| `--font-body` | DM Sans | Body, nav, botões, FAQ |
-
-### Scale
-
-| Token | Value | Token | Value |
-|---|---|---|---|
-| `--text-xs` | `0.75rem` | `--text-2xl` | `1.5rem` |
-| `--text-sm` | `0.875rem` | `--text-3xl` | `1.875rem` |
-| `--text-base` | `1rem` | `--text-4xl` | `2.25rem` |
-| `--text-lg` | `1.125rem` | `--text-5xl` | `3rem` |
-| `--text-xl` | `1.25rem` | `--text-6xl` | `3.75rem` |
-
-### Leading
-
-`--leading-tight 1.25` · `--leading-snug 1.375` · `--leading-normal 1.5` · `--leading-relaxed 1.625`
-
-### Tracking
-
-| Padrão | Valor |
-|---|---|
-| Display tight | `-0.04em` … `-0.06em` |
-| Body | `-0.01em` |
-| Uppercase / eyebrow | `+0.12em` … `+0.14em` |
-
-Body default: DM Sans **500**, `text-base`, `leading-relaxed`.
-
----
-
-## Spacing & layout
-
-### Space scale (8px base)
-
-`1→8` · `2→16` · `3→24` · `4→32` · `5→40` · `6→48` · `7→64` · `8→80` · `9→96` · `10→112` · `11→128`
-
-### Layout
-
-| Token | Default | Responsive |
-|---|---|---|
-| `--container` | `1100px` | ≥1024 → `1160px` |
-| `--gutter` | `1.25rem` | 640→`1.5rem` · 1024→`2rem` |
-| `--nav-h` | `72px` | ≤640 → `64px` |
-| `--section-y` | `80px` | 800→112 · 1024→128 |
-
-### Breakpoints
-
-`420` · `640` · `720` · `760` · `800` · **`860`** (nav desktop / sticky) · `1024` · `1100`
-
-### Radius
-
-| Valor | Uso |
-|---|---|
-| **12px** | Botões, inputs, cookie |
-| **16px** | Form card |
-| Elipse | Hero ground / footer dome |
-
-**Evitar:** pills `9999px`, cantos 0–4px misturados.
-
----
-
-## Buttons
-
-Altura **52px** (nav/cookie **44px**), radius **12px**, DM Sans 700, sentence case.
-
-| Variante | Estilo | Onde |
-|---|---|---|
-| `.btn--blue` | fill `#1857ff` / texto branco | Nav, form, cookie |
-| `.btn--solid` | branco / ink | Hero primary |
-| `.btn--ghost` | outline branco | Hero secondary |
-| `.btn--outline` | outline ink | Cookie reject |
-| `.btn--ink` | fill ink | Spec |
-
-Hover blue → `--blue-mid` `#3d74ff`.
-
----
-
-## Inputs
-
-- Height `52px`, border `2px solid #e6e6e6`, radius `12px`
-- Focus: border `#1857ff` + `box-shadow: 0 0 0 3px #1857ff59`
-- Error `#e11d48` · Success `#05e17a` · Disabled `#f0f0ee`
-
----
-
-## Components
-
-| Component | Notes |
-|---|---|
-| Header | Sticky, blur, soft bg |
-| Hero | `#1046e8` · meridians · charcoal ground · solid+ghost |
-| Why | Ícones + lead · soft bg |
-| Services | 01/02/03 · `.is-active` por scroll |
-| Approach | Descobrir → Desenhar → Entregar · sticky ≥860 |
-| FAQ | `#252b38` · accordion |
-| Contact | Mail underline · form card · mailto |
-| Footer | Ink · dome · brand + cols |
-| Cookie | `#111` · accept blue / reject outline |
-
----
-
-## Motion
-
-| Sistema | Comportamento |
-|---|---|
-| Hero | Rise 0.75s · underline draw · ground no scroll |
-| Reveal | IO opacity + `translateY(14px)` · 0.65s |
-| Approach | Item a item por viewport |
-| Reduced | `prefers-reduced-motion` → estado final |
-
----
-
-## Motifs
-
-Círculo / horizonte (hero ground + footer dome) · meridians · grid 48px · scribble underline.
-
-**Não é neobrutalism** — alto contraste ink/blue, radius 12px, grids sutis.
-
----
-
-## Snippet `:root`
-
-```css
-:root {
-  --bg: #ffffff;
-  --bg-soft: #f6f8fc;
-  --bg-blue: #eef2fa;
-  --paper: #f7f6f2;
-  --ink: #0a0a0a;
-  --charcoal: #141820;
-  --muted: #3f3f3f;
-  --line: #e6e6e6;
-  --line-strong: #0a0a0a;
-  --blue: #1857ff;
-  --blue-mid: #3d74ff;
-  --blue-deep: #0b3fd9;
-  --blue-soft: #9ec2ff;
-  --blue-glow: #d6e6ff;
-  --green: #05e17a;
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-logo: "Inter", "DM Sans", system-ui, sans-serif;
-}
-```
-
-Hero field: `#1046e8` · FAQ: `#252b38`.
-
-Versão visual paginada: [`brand/guidelines.html`](./brand/guidelines.html).
+hello@beyond.sistemas.com.br
