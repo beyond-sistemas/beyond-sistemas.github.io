@@ -27,10 +27,19 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Build
+        run: npm ci && npm run build
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v5
         with:
-          path: .
+          path: ./dist
 
       - name: Wait for artifact API
         run: sleep 20
