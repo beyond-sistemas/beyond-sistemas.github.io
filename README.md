@@ -89,7 +89,6 @@ hello@beyond.sistemas.com.br
 | `assets/` | Logotipos, ícones WebP, fontes locais e imagem Open Graph |
 | `assets/brand-avatar.png` | Avatar da marca para GitHub e redes (512×512) |
 | `wallpapers/` | Papéis de parede gerados com HyperFrames |
-| `scripts/sync-inline-css.py` | Sincroniza `css/styles.css` com o `<style>` da home |
 | `.github/workflows/deploy-pages.yml` | Deploy automático no GitHub Pages |
 | `robots.txt`, `sitemap.xml`, `404.html` | Arquivos de SEO e erro |
 
@@ -100,13 +99,7 @@ python3 -m http.server 4321
 # http://127.0.0.1:4321/
 ```
 
-Depois de editar `css/styles.css`, sincronize o bloco inline da home:
-
-```bash
-python3 scripts/sync-inline-css.py
-```
-
-> `index.html` inlines CSS e fontes locais para manter o primeiro paint fora do caminho crítico. `css/styles.css` continua sendo a fonte da verdade.
+`css/styles.css` é a única fonte de CSS, incluindo os `@font-face`. As fontes WOFF2 locais são pré-carregadas no `<head>` das páginas.
 
 ## Deploy e CI/CD
 
