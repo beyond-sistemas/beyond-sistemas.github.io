@@ -20,83 +20,56 @@
 
 ---
 
-## O problema
+## Sobre a Beyond
 
-Sistema travado não é falta de ferramenta. É dívida de decisão.
+A Beyond é uma consultoria de engenharia. Estratégia e execução na mesma mão — do diagnóstico à produção.
 
-- **Consultoria tradicional** entrega diagnóstico, slides e uma recomendação. Quem decide não implementa. Quem implementa não entendeu o contexto.
-- **Software house** executa a especificação que recebe. Entrega função, não resolve o problema de arquitetura por trás dela.
-- **Time interno** tem contexto, mas raramente tem largura de banda para reestruturar a base e entregar ao mesmo tempo.
+Consultoria de engenharia para o problema que trava o seu negócio. Quem desenha a solução é quem responde pela entrega.
 
-O resultado é o mesmo: integração frágil, acoplamento invisível e ninguém responsável pelo sistema como um todo.
+### Qual a diferença para uma consultoria ou uma software house?
 
-## A tese
+Consultoria tradicional recomenda e sai. Software house executa o que recebe pronto. A Beyond faz as duas coisas: entende o problema, decide a arquitetura e responde pela entrega.
 
-Engenharia sênior que decide e executa no mesmo ciclo.
+## Estratégia e execução na mesma mão
 
-A Beyond entra no problema com mão na massa. O mesmo engenheiro que entende o negócio desenha a arquitetura, escreve o código, acompanha o deploy e faz o handoff. Não existe repasse entre "quem pensa" e "quem faz".
+**Decisão com contexto.** Entendemos o negócio antes do sistema. Arquitetura é escolha técnica, não template.
 
-| | Consultoria | Software house | **Beyond** |
-|---|---|---|---|
-| Diagnóstico | sim | raramente | sim |
-| Decisão de arquitetura | recomenda | recebe pronta | decide e implementa |
-| Código em produção | não | sim | sim, com o mesmo dono |
-| Responsabilidade | termina no relatório | termina na entrega | vai até o handoff |
-| Contexto do negócio | alto | baixo | alto |
+**Engenharia junto.** O sênior que desenha acompanha a implementação, as integrações e o deploy. Sem repasse entre times.
 
-## O que entregamos
+**Dono até o fim.** Você fala com quem decide. A responsabilidade vai do diagnóstico ao handoff, com testes e documentação.
 
-### Arquitetura
+## Serviços
 
-- Diagnóstico de sistemas existentes e do limite real que trava o crescimento
-- Desenho de fronteiras, contratos e roadmap técnico
-- Decisões registradas, com trade-offs explícitos — não template de slide
+Não separamos quem planeja de quem executa. Uma equipe, do desenho à produção.
 
-### Integrações
+| # | Serviço | Descrição |
+|---|---|---|
+| 01 | **Arquitetura** | Design de sistemas, roadmap e decisões técnicas que escalam. |
+| 02 | **Engenharia** | Engenharia de produto hands-on, APIs e plataformas até produção. |
+| 03 | **Cloud & DevOps** | DevOps, confiabilidade e infraestrutura estável sob pressão. |
 
-- Mapeamento de ERPs, CRMs, gateways, clouds e APIs
-- Auth, eventos, sincronização e contratos estáveis com terceiros
-- Pontes sob medida onde não existe conector pronto
+## Como trabalhamos
 
-### Engenharia de produto
-
-- Implementação hands-on de APIs, serviços e plataformas
-- Código no repositório do cliente, desde o primeiro commit
-- Testes, documentação e deploy na infraestrutura do cliente
-
-### Cloud & DevOps
-
-- Confiabilidade e observabilidade sob pressão
-- Infraestrutura estável, versionada e reproduzível
-- Operação transferida para o time com handoff claro
-
-## Como o trabalho acontece
-
-| Etapa | O que sai |
+| Etapa | Descrição |
 |---|---|
-| **01 · Descobrir** | Mapa de sistemas, restrições e gargalo real |
-| **02 · Desenhar** | Arquitetura, prioridades e plano executável pelo time |
-| **03 · Entregar** | Código, deploy, testes, documentação e handoff |
+| **01 · Descobrir** | Mapear restrições, sistemas e o limite real que trava o crescimento. |
+| **02 · Desenhar** | Definir arquitetura, prioridades e um caminho que o time consiga executar. |
+| **03 · Entregar** | Entregar com engenheiro responsável envolvido — código, deploy e decisões até o handoff. |
 
-Ciclo curto, com dono claro e checkpoints semanais. Escopo acompanha o que o time aprende na prática.
+## FAQ
 
-## Princípios técnicos
+**Como é o processo?**  
+Descobrir, desenhar, entregar — um ciclo curto com dono claro e checkpoints semanais.
 
-- **Sem lock-in:** código, PRs e infraestrutura vivem na conta do cliente
-- **Contratos antes de implementar:** fronteiras estáveis entre sistemas
-- **Solução sob medida:** não existe peça genérica para problema específico
-- **Entrega verificável:** testes e documentação acompanham o código
-- **Saída planejada:** o time continua rodando sem depender de nós
+**Como funciona a cobrança?**  
+Por projeto ou retainer. Alinhamos o escopo antes do kickoff para o investimento ficar transparente.
 
-Operação: somente remoto.
-
-## Site
-
-**Produção:** https://beyond-sistemas.github.io/beyond/
-
-Landing estática, sem build. HTML, CSS e JavaScript puro.
+**Onde vocês ficam?**  
+Somente remoto.
 
 ## Contato
+
+Conte o desafio. Respondemos com um próximo passo claro — sem pitch genérico.
 
 hello@beyond.sistemas.com.br
 
@@ -144,6 +117,8 @@ python3 scripts/sync-inline-css.py
 
 Todo push em `main` dispara o deploy. `workflow_dispatch` também está disponível.
 
+Site: https://beyond-sistemas.github.io/beyond/
+
 ## Identidade visual
 
 | Asset | Uso |
@@ -152,14 +127,5 @@ Todo push em `main` dispara o deploy. `workflow_dispatch` também está disponí
 | `assets/mark-ring.svg` | Header (fundo claro) |
 | `assets/mark-on-dark.svg` | Footer (fundo escuro) |
 | `assets/brand-avatar.png` | Avatar institucional |
-
-| Token | Valor | Papel |
-|---|---|---|
-| `--ink` | `#0a0a0a` | Texto e footer |
-| `--blue` | `#1857ff` | Accent, CTA e foco |
-| `--blue-mid` | `#3d74ff` | Hover de azul |
-| `--charcoal` | `#141820` | Horizonte do hero e do footer |
-
-Tipografia: Inter (wordmark), Syne (títulos), DM Sans (corpo), hospedada localmente em `assets/fonts/`.
 
 Guia completo: [`brand/guidelines.html`](./brand/guidelines.html)
